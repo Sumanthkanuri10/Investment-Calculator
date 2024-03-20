@@ -5,22 +5,22 @@
 // - expectedReturn: The expected (annual) rate of return
 // - duration: The investment duration (time frame)
 export function calculateInvestmentResults({
-  initialInvestment,
-  annualInvestment,
-  expectedReturn,
-  duration,
+  InitialInvestment,
+  AnnualInvestment,
+  ExpectedReturn,
+  Duration,
 }) {
   const annualData = [];
-  let investmentValue = initialInvestment;
+  let investmentValue = InitialInvestment;
 
-  for (let i = 0; i < duration; i++) {
-    const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-    investmentValue += interestEarnedInYear + annualInvestment;
+  for (let i = 0; i < Duration; i++) {
+    const interestEarnedInYear = investmentValue * (ExpectedReturn / 100);
+    investmentValue += interestEarnedInYear + AnnualInvestment;
     annualData.push({
       year: i + 1, // year identifier
       interest: interestEarnedInYear, // the amount of interest earned in this year
       valueEndOfYear: investmentValue, // investment value at end of year
-      annualInvestment: annualInvestment, // investment added in this year
+      annualInvestment: AnnualInvestment, // investment added in this year
     });
   }
 
